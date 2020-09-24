@@ -17,18 +17,12 @@ class Polygon {
 class Triangle extends Polygon {
 
     get isValid() {
-      if (!Array.isArray(this.arrOfIntegers)){
-        return;
-      } 
-      if (this.length !== 3) {
-          return;
+        if (this.arrOfIntegers[0] + this.arrOfIntegers[1] <= this.arrOfIntegers[2] || this.arrOfIntegers[1] + this.arrOfIntegers[2] <= this.arrOfIntegers[0] || this.arrOfIntegers[0] + this.arrOfIntegers[2] <= this.arrOfIntegers[1]) {
+          return false;
+        } else {
+          return true;
         }
-
-      let side1 = this.arrOfIntegers[0]
-      let side2 = this.arrOfIntegers[1]
-      let side3 = this.arrOfIntegers[2]
-      return ((side1 + side2 > side3) && (side1 + side3 > side2) && (side2 + side3 > side1))
-    }
+      }
   }
 
   class Square extends Polygon {
@@ -37,8 +31,6 @@ class Triangle extends Polygon {
             return
         } else {
             let side = this.arrOfIntegers[0];
-            
-
             return side * side
         }
     }
